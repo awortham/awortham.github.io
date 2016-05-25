@@ -6,117 +6,74 @@ title: Using Draper to Clean up Views
 
 -Rails Decorators Using Draper Gem-
 
-There are several ways to clean up your views and many helper methods available to Rails. The Draper gem allows you to focus these helpers into one view so they don't conflict and can clean up your views, which gives you concise beautiful code.
+There are several ways to clean up your views and many helper methods available to Rails.
+The Draper gem is rather like a wrapper around your Rails models. The decorator is used
+to encapsulate view logic, but can be tested like a model.
 
-The steps in this blog are based on Rails version 4.1.6 and Ruby version 2.1.3
 
 Begin by adding the draper gem to you gem file.
 
-
-
-
-
-
-
-
+```ruby
+gem 'draper'
+```
 
 Then run bundle in your console.
 
+Lets say we have a collection of three articles with a published date that we want to display.
+First we need to generate the decorator that we will need for the article objects. Draper
+has a generator built in that makes this super simple.
 
+```ruby
+rails g decorator article
+```
 
+This command will generate a folder called decorators inside the app directory and
+a file called article_decorator.rb.
 
+Next we will need to 'decorate' the object or collection of objects.
 
+In our controller we make our query and decorate it:
 
+```ruby
+@articles = Article.publishable.first(3).decorate
+```
 
-I am adding this into some budgeting software that I am writing, so translate what you see from the controller to your own project. This is what I had to begin with:
+This works when we call it on the active record relation, but would not work if your
+collection were an array of article objects.
 
 
+Now, no feature is complete without a good spec, so lets map out what it is we are
+looking for. I like to create a decorator directory in the spec directory and create
+a spec file called article_decorator_spec.rb.
 
+```ruby
+require "rails_helper"
 
+RSpec.describe ArticleDecorator, type: :model do
+  it "formats the published date" do
+    article = create(:article, published_date: DateTime.new(2014,2,12,6,30)).decorate
 
+    expect(article.format_published_date).to eq "Wednesday, February 12, 2014  6:30 AM"
+  end
+end
+```
 
+Next to make our test pass.
 
+```ruby
+  def format_published_date
+    modified_date.strftime("%A, %B %d, %Y %l:%M %p")
+  end
+```
 
+That should get our spec to green. Now lets go ahead and implement it into the views.
 
+```ruby
+  <% @articles.each do |article| %>
+    <%= article.format_published_date %>
+  <% end %>
+```
 
+And there it is! We have now implemented a decorator using the Draper gem and moved
+the formatting logic out of the view and into the decorator class.
 
-
-
-
-In order to set up for the decorator I will change it to be this:
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-This allows you to still insert all the accounts in the database, but now you have wrapped each one in the decorator.
-Now, if you try to load the index action it should blow up and give you this error on your local server:
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-The next step is to generate the decorator. To do this run 'rails g decorator account' in your console. This should generate a folder called 'decorators' and a file named 'account_decorator.rb'. Now restart your console and you should see your index page as you normally would.
-
-In my index view page I have inserted the line <%= account.created_at %> which displays this on the page.
-
-
-
-
-
-
-
-
-This is not very readable. The traditional Rails way to fix this is to add something like this to your view page:
-
-<%= account.created_at.strftime("%b %e, %l:%M %p") %>
-
-This changes the display to this:
-
-
-
-
-
-
-
-
-
-
-From the user side this is fine, however my goal is to get the view page cleaned up behind the scenes. So here is where the decorator comes in.
-
-Open your account_decorator.rb file and write a method called format_created_at. The name is not important so long as you call the same method name in your view template. Here is what mine looks like:
-
-
-
-Then change your view so that it calls this method rather than the original created at method.
-
-<%= account.format_created_at %>
-
-Bravo!!
-
-You have now implemented a helper method using decorators from the draper gem. The output on your page should be the same from the user standpoint but your code has been cleaned up and you pushed the formatting logic out of the template and into the decorator class.
-
-Twitter: https://twitter.com/WorthamAaron
-Github: https://github.com/awortham
