@@ -6,7 +6,7 @@ title: Customizing your Rails new Command
 
 Take care of boilerplate with a few customizations
 
--The Problem-
+-The Problem to Solve-
 
 There comes a day in every Rails developer's working life that things begin to settle
 into place. You have settled on certain gems that you know and prefer to use with
@@ -18,7 +18,7 @@ for a new application before you can really start to 'build'. With this in mind,
 look at how we can make all of this happen automatically, saving both you and your
 company hours of time each time you launch a new project.
 
--The Solution-
+-The Solution to the Problem-
 
 When I started down this path I looked at a couple of possibilities. Thoughtbot
 built a gem called Suspenders for their startup. I tried it, but they use different
