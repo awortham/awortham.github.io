@@ -119,6 +119,8 @@ git add: "."
 git commit: "-m 'Initial Commit'"
 ```
 
+-Conclusion-
+
 This bundles all of our gems into the app, install RSpec and even sets up Spring
 commands. Lastly, we have made our initial Git commit so that we are ready to go.
 This is just a sample of commands and customizations that you can add to your setup
