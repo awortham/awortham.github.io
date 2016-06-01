@@ -33,7 +33,7 @@ easy to maintain and I can quickly make a change and use it all in just a couple
 minutes.
 
 ```ruby
-rails new blogger
+rails new my_app
 ```
 -Flags-
 
@@ -41,7 +41,7 @@ The easiest thing to change is to add a flag to your rails new command.
 Here is an example:
 
 ```ruby
-rails new blogger --skip-test-unit
+rails new my_app --skip-test-unit
 ```
 
 This flag will tell Rails to skip installing the test unit testing framework, presumably
