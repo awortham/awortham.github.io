@@ -4,6 +4,8 @@ comments: true
 title: Customizing your Rails new Command
 ---
 
+Take care of boilerplate with a few customizations
+
 -The Problem-
 
 There comes a day in every Rails developer's working life that things begin to settle
