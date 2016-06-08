@@ -35,6 +35,7 @@ minutes.
 ```ruby
 rails new my_app
 ```
+
 ### Flags
 
 The easiest thing to change is to add a flag to your rails new command.
