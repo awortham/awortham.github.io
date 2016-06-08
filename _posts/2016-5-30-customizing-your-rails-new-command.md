@@ -6,7 +6,7 @@ title: Customizing your Rails new Command
 
 Take care of boilerplate with a few customizations
 
--The Problem to Solve-
+### The Problem to Solve
 
 There comes a day in every Rails developer's working life that things begin to settle
 into place. You have settled on certain gems that you know and prefer to use with
@@ -18,7 +18,7 @@ for a new application before you can really start to 'build'. With this in mind,
 look at how we can make all of this happen automatically, saving both you and your
 company hours of time each time you launch a new project.
 
--The Solution to the Problem-
+### The Solution to the Problem
 
 When I started down this path I looked at a couple of possibilities. Thoughtbot
 built a gem called Suspenders for their startup. I tried it, but they use different
@@ -35,7 +35,7 @@ minutes.
 ```ruby
 rails new my_app
 ```
--Flags-
+### Flags
 
 The easiest thing to change is to add a flag to your rails new command.
 Here is an example:
@@ -74,7 +74,7 @@ this line because I want to add my own gems and then bundle later. The last line
 configures the standard rails generators to skip generating the helper and asset
 files.
 
--Next Steps-
+### Next Steps
 
 Now the exciting part begins. Rails templates allow you to add gems, run commands,
 generate files and even make git commits as you see fit. Here is the line in my
@@ -119,7 +119,7 @@ git add: "."
 git commit: "-m 'Initial Commit'"
 ```
 
--Conclusion-
+### Conclusion
 
 This bundles all of our gems into the app, install RSpec and even sets up Spring
 commands. Lastly, we have made our initial Git commit so that we are ready to go.
