@@ -21,7 +21,7 @@ company hours of time each time you launch a new project.
 ### The Solution to the Problem
 
 When I started down this path I looked at a couple of possibilities. Thoughtbot
-built a gem called Suspenders for their startup. I tried it, but they use different
+built a gem called [Suspenders](https://github.com/thoughtbot/suspenders) for their startup. I tried it, but they use different
 gems and have a rather different setup than we do where I work. I considered building
 my own version of it, but I really did not want to upkeep a gem at this time. I really
 wanted something more lightweight. If you find yourself using the same database migrations
