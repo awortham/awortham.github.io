@@ -1,7 +1,7 @@
 ---
 layout: post
 comments: true
-title: Active Record Grouped and Counted Query
+title: Active Record - Most Popular Articles
 ---
 
 Recently, I came across an interesting problem. A few quick Google searches revealed that I am not the first
