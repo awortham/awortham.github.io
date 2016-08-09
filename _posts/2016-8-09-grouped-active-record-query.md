@@ -80,7 +80,7 @@ ensures that we do not return trendings that were meant for tags.
   end
 ```
 
-Now to get this to pass I want a query that groups the records.
+Now to get this to pass. I want a query that groups the records.
 
 ```ruby
 scope :popular_articles, -> { group(:article_id).where.not(article_id: 0) }
