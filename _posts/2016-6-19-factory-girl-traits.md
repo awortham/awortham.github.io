@@ -4,13 +4,13 @@ comments: true
 title: Using FactoryGirl Traits To Streamline Your Specs
 ---
 
--What is FactoryGirl?-
+### What is FactoryGirl?
 
 FactoryGirl is a fixtures replacement gem that works beautifully with RSpec and is tremendously helpful in
 efficiently setting up your test data for a well tested app. My goal is not to give an explanation of all
 the ins and outs of FactoryGirl, so if you are interested in basic setup check it out [here](https://github.com/thoughtbot/factory_girl).
 
--The Problem-
+### The Problem
 
 FactoryGirl is very easy to get up and running. However, the one thing that I struggled with initially was
 getting the associations setup. Let's look at an example with a car. Here is a basic way to call the factory
@@ -52,7 +52,7 @@ end
 This can be a bad idea because now you are hitting two database tables per spec that calls this factory whether
 you need it or not. This also does not work with many to many relationships. You will receive an error.
 
--Solution-
+### Solution
 
 The simple way to solve this and the way that I took when I first began was to simply assign them after creating
 the car. Lets assign some drivers for this car.
@@ -84,7 +84,7 @@ And on and on. Each time I wanted to write a request spec in which the html was 
 Then I would write a new model level spec for a new query and would create a new car with all the relations to query
 against. This is obviously too much repetitive setup.
 
--Traits-
+### Traits
 
 This is where traits come in. Traits allow you to do some thorough setup inside your factories file and simply
 reference this. Here is an example:
@@ -128,7 +128,7 @@ Beautiful right?
 Traits are yet another way to keep our code dry. The next time you find yourself writing out the database
 relations for your object, consider whether a FactoryGirl trait may be the way to go.
 
--Final Notes-
+### Final Notes
 
-Some good resources that I have learned from are Thoughtbot's Upcase tutorials and this [blog post](https://robots.thoughtbot.com/remove-duplication-with-factorygirls-traits) by Thoughtbot
+Some good resources that I have learned from are Thoughtbot's [Upcase](https://thoughtbot.com/upcase/join) tutorials and this [blog post](https://robots.thoughtbot.com/remove-duplication-with-factorygirls-traits) by Thoughtbot
 
