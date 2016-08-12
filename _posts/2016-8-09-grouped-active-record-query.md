@@ -11,7 +11,9 @@ using straight SQL rather than ActiveRecord.
 ### Most Popular Articles
 
 My challenge was to find the most popular or most visited articles and display these articles in a widget
-at the bottom of the page or in a sidebar.
+at the bottom of the page or in a sidebar. This needed to be done by querying the Article table and the
+has_many trendings association. The articles with the highest number of trendings associated would be
+our most popular articles.
 
 ### Database Setup
 
